@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Eduardo\'s Flutter Labs',
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: .fromSeed(seedColor: Colors.deepPurpleAccent),
       ),
-      home: const MyHomePage(title: 'Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
