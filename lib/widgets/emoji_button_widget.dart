@@ -11,10 +11,11 @@ class EmojiButton extends StatefulWidget{
 class _EmojiButtonState extends State<EmojiButton> {
   IconData? _iconPressed;
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(),
+      appBar: AppBarWidget(title: 'Botão de emoji',),
       body: Padding(
           padding: const EdgeInsetsGeometry.all(15),
           child: Center(
@@ -25,9 +26,20 @@ class _EmojiButtonState extends State<EmojiButton> {
   }
 
   Widget _buildBody() {
-    return Row(
-      spacing: 10,
+    return Column(
+      spacing: 50,
       children: [
+        Text(
+          'Esse foi o primeiro widget feito nesse laboratório, aqui basicamente você seleciona seu grau de satisfação, essa é a ideia:',
+          style: TextStyle(
+            fontSize: 15,
+            color: Colors.grey[600],
+          ),
+          textAlign: TextAlign.justify,
+        ),
+        Row(
+          spacing: 10,
+          children: [
         Expanded(
             child: EmojiButtonBuild(
               icon: Icons.sentiment_satisfied,
@@ -53,6 +65,8 @@ class _EmojiButtonState extends State<EmojiButton> {
             )
         ),
       ],
+        )
+      ]
     );
   }
 

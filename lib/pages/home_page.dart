@@ -15,17 +15,27 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(),
+      appBar: AppBarWidget(title: 'Flutter Labs'),
       body: _buildBody(),
     );
   }
 
   Widget _buildBody() {
     return Container(
-      width: double.infinity,
-      height: double.infinity,
       padding: EdgeInsets.all(15),
-      child: ListWidgetsPage(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 15,
+        children: [
+          Text(
+            'Lista de Widgets que criei para aprendizado:',
+            textAlign: TextAlign.justify,
+          ),
+          Expanded(
+          child: ListWidgetsPage()
+          )
+        ]
+      ),
     );
   }
 }
