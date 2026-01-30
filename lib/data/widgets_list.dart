@@ -1,5 +1,6 @@
 import 'package:flutter_labs/models/widget_examples.dart';
 import 'package:flutter_labs/widgets/emoji_button_widget.dart';
+import 'package:flutter_labs/widgets/expandable_area_widget.dart';
 
 class WidgetsList {
   static final List<WidgetExamples> items = [
@@ -7,5 +8,9 @@ class WidgetsList {
       title: 'Botão de Emoji',
       page: const EmojiButton(),
     ),
+    WidgetExamples(
+        title: 'Texto Expansível',
+        page: const ExpandableAreaWidget()
+    )
   ];
 }
