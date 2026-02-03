@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_labs/pages/home_page.dart';
 
 List<CameraDescription> cameras = [];
@@ -7,6 +8,7 @@ List<CameraDescription> cameras = [];
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   cameras = await availableCameras();
+  await dotenv.load();
   runApp(const MyApp());
 }
 

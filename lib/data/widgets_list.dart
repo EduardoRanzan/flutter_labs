@@ -1,4 +1,5 @@
 import 'package:flutter_labs/models/widget_examples.dart';
+import 'package:flutter_labs/widgets/api_calls_widget.dart';
 import 'package:flutter_labs/widgets/emoji_button_widget.dart';
 import 'package:flutter_labs/widgets/expandable_area_widget.dart';
 import 'package:flutter_labs/widgets/facial_collect_widget.dart';
@@ -15,6 +16,11 @@ class WidgetsList {
     ),
     WidgetExamples(
         title: 'Coleta Facial',
-        page: const FacialCollectWidget())
+        page: const FacialCollectWidget()
+    ),
+    WidgetExamples(
+        title: 'API calls',
+        page: const ApiCallsWidget()
+    ),
   ];
 }
