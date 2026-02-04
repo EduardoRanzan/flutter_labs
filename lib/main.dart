@@ -2,6 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_labs/features/presentation/home_page.dart';
+import 'package:flutter_labs/features/splash/presentation/splash_page.dart';
 
 List<CameraDescription> cameras = [];
 
@@ -17,11 +18,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Eduardo\'s Flutter Labs',
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurpleAccent),
       ),
-      home: const MyHomePage(),
+      routes: {
+        '/splash': (_) => const SplashPage(),
+        '/home': (_) => const MyHomePage(),
+        '/login': (_) => const Text('a')
+      },
+      initialRoute: '/splash',
     );
   }
 }
