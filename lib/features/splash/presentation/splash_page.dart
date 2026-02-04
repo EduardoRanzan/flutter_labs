@@ -25,7 +25,7 @@ class _SplashPageState extends State<SplashPage> {
 
     Navigator.pushReplacementNamed(
         context,
-        isLoggedIn ? '/login' : '/home'
+        isLoggedIn ? '/home' : '/login'
     );
   }
 

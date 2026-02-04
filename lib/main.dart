@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_labs/features/auth/presentation/auth_page.dart';
 import 'package:flutter_labs/features/presentation/home_page.dart';
 import 'package:flutter_labs/features/splash/presentation/splash_page.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/splash': (_) => const SplashPage(),
         '/home': (_) => const MyHomePage(),
-        '/login': (_) => const Text('a')
+        '/login': (_) => const AuthPage(),
       },
       initialRoute: '/splash',
     );
