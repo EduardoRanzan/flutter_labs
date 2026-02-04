@@ -1,8 +1,8 @@
+import 'package:flutter_labs/features/my_widgets/api_calls_widget.dart';
+import 'package:flutter_labs/features/my_widgets/emoji_button_widget.dart';
+import 'package:flutter_labs/features/my_widgets/expandable_area_widget.dart';
+import 'package:flutter_labs/features/my_widgets/facial_collect_widget.dart';
 import 'package:flutter_labs/models/widget_examples.dart';
-import 'package:flutter_labs/widgets/api_calls_widget.dart';
-import 'package:flutter_labs/widgets/emoji_button_widget.dart';
-import 'package:flutter_labs/widgets/expandable_area_widget.dart';
-import 'package:flutter_labs/widgets/facial_collect_widget.dart';
 
 class WidgetsList {
   static final List<WidgetExamples> items = [

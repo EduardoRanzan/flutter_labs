@@ -1,8 +1,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_labs/pages/list_widgets_page.dart';
-import 'package:flutter_labs/widgets/shared/app_bar_widget.dart';
+import 'package:flutter_labs/core/widgets/app_bar_widget.dart';
+import 'package:flutter_labs/core/widgets/list_widgets_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});

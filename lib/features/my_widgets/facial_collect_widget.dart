@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_labs/pages/facial_camera_page.dart';
-import 'package:flutter_labs/widgets/shared/app_bar_widget.dart';
+import 'package:flutter_labs/core/widgets/app_bar_widget.dart';
+import 'package:flutter_labs/features/my_widgets/facial_camera_page.dart';
 
 class FacialCollectWidget extends StatefulWidget {
   const FacialCollectWidget({super.key});

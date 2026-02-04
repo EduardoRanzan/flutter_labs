@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_labs/widgets/shared/app_bar_widget.dart';
+import 'package:flutter_labs/core/widgets/app_bar_widget.dart';
 
 class EmojiButton extends StatefulWidget{
   const EmojiButton({super.key});

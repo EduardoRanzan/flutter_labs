@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_labs/services/dio/interceptors/auth_interceptor.dart';
+import 'package:flutter_labs/core/services/interceptors/auth_interceptor.dart';
 
 class DioClient {
   static final DioClient _instance = DioClient._internal();

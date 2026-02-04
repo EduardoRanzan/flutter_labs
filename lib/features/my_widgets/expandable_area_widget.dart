@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_labs/widgets/shared/app_bar_widget.dart';
+import 'package:flutter_labs/core/widgets/app_bar_widget.dart';
 
 class ExpandableAreaWidget extends StatefulWidget{
   const ExpandableAreaWidget({super.key});

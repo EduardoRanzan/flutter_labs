@@ -1,5 +1,5 @@
-import 'package:flutter_labs/services/dio/dio_client.dart';
-import 'package:flutter_labs/services/dto/auth/auth_request_dto.dart';
+import 'package:flutter_labs/core/services/dio_client.dart';
+import 'package:flutter_labs/features/auth/entity/auth_request_dto.dart';
 
 class AuthService {
   final dio = DioClient().dio;
