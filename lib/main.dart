@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_labs/core/themes/app_theme.dart';
 import 'package:flutter_labs/features/auth/presentation/auth_page.dart';
 import 'package:flutter_labs/features/presentation/home_page.dart';
 import 'package:flutter_labs/features/splash/presentation/splash_page.dart';
@@ -20,17 +21,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      supportedLocales: AppLocalizations.supportedLocales,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurpleAccent),
-      ),
-      routes: {
-        '/splash': (_) => const SplashPage(),
-        '/home': (_) => const MyHomePage(),
-        '/login': (_) => const AuthPage(),
-      },
       initialRoute: '/splash',
+      routes: {
+        '/splash': (context) => const SplashPage(),
+        '/home': (context) => const MyHomePage(),
+        '/login': (context) => const AuthPage(),
+      },
+      theme: AppTheme.initTheme(),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
