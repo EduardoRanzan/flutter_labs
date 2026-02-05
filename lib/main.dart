@@ -4,6 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_labs/features/auth/presentation/auth_page.dart';
 import 'package:flutter_labs/features/presentation/home_page.dart';
 import 'package:flutter_labs/features/splash/presentation/splash_page.dart';
+import 'package:flutter_labs/l10n/app_localizations.dart';
 
 List<CameraDescription> cameras = [];
 
@@ -19,6 +20,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurpleAccent),
       ),
