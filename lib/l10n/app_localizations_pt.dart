@@ -16,4 +16,13 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get password => 'Senha';
+
+  @override
+  String get submitAuth => 'Entrar';
+
+  @override
+  String get unauthorized_exception => 'Credenciáis inválidas';
+
+  @override
+  String get generica_exception => 'Erro inesperado';
 }

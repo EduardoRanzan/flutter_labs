@@ -1,18 +1,18 @@
 class AuthResponseDto {
-  final String first_name;
-  final String last_name;
-  final String token;
+  final String id;
+  final String name;
+  final String access_token;
 
   AuthResponseDto({
-    required this.first_name,
-    required this.last_name,
-    required this.token,
+    required this.id,
+    required this.name,
+    required this.access_token,
   });
 
   factory AuthResponseDto.fromJson(Map<String, dynamic> json) =>
       AuthResponseDto(
-          first_name: json['first_name'],
-          last_name: json['last_name'],
-          token: json['token']
+          id: json['id'],
+          name: json['nome'],
+          access_token: json['access_token']
       );
 }

@@ -2,5 +2,8 @@
   "@@locale": "pt",
   "appTitle": "Flutter Labs",
   "login": "Login",
-  "password": "Senha"
+  "password": "Senha",
+  "submitAuth": "Entrar",
+  "unauthorized_exception": "Credenciáis inválidas",
+  "generica_exception": "Erro inesperado"
 }

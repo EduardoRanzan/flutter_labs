@@ -2,5 +2,8 @@
   "@@locale": "en",
   "appTitle": "Flutter Labs",
   "login": "Login",
-  "password": "Password"
+  "password": "Password",
+  "submitAuth": "Login",
+  "UnauthorizedException": "Invalid credentials",
+  "GenericaException": "Unexpected error"
 }

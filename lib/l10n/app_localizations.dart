@@ -115,6 +115,24 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Senha'**
   String get password;
+
+  /// No description provided for @submitAuth.
+  ///
+  /// In pt, this message translates to:
+  /// **'Entrar'**
+  String get submitAuth;
+
+  /// No description provided for @unauthorized_exception.
+  ///
+  /// In pt, this message translates to:
+  /// **'Credenciáis inválidas'**
+  String get unauthorized_exception;
+
+  /// No description provided for @generica_exception.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro inesperado'**
+  String get generica_exception;
 }
 
 class _AppLocalizationsDelegate
