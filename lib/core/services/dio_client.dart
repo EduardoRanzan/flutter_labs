@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_labs/core/services/interceptors/auth_interceptor.dart';
+import 'package:flutter_labs/core/services/interceptors/error_interceptor.dart';
 
 class DioClient {
   static final DioClient _instance = DioClient._internal();
@@ -19,5 +20,6 @@ class DioClient {
       ),
     );
     dio.interceptors.add(AuthInterceptor());
+    dio.interceptors.add(ErrorInterceptor());
   }
 }
