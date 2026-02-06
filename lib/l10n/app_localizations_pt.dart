@@ -25,4 +25,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get generica_exception => 'Erro inesperado';
+
+  @override
+  String get success_login => 'Login realizado com sucesso';
+
+  @override
+  String get required => 'Este campo é obrigatório';
 }

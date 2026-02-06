@@ -5,5 +5,7 @@
   "password": "Senha",
   "submitAuth": "Entrar",
   "unauthorized_exception": "Credenciáis inválidas",
-  "generica_exception": "Erro inesperado"
+  "generica_exception": "Erro inesperado",
+  "success_login": "Login realizado com sucesso",
+  "required": "Este campo é obrigatório"
 }

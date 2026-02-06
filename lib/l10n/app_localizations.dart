@@ -133,6 +133,18 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Erro inesperado'**
   String get generica_exception;
+
+  /// No description provided for @success_login.
+  ///
+  /// In pt, this message translates to:
+  /// **'Login realizado com sucesso'**
+  String get success_login;
+
+  /// No description provided for @required.
+  ///
+  /// In pt, this message translates to:
+  /// **'Este campo é obrigatório'**
+  String get required;
 }
 
 class _AppLocalizationsDelegate

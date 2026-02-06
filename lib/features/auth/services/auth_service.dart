@@ -11,10 +11,6 @@ class AuthService {
       data: body.toJson()
     );
 
-    if (response.statusCode == 401) {
-      return Future.error('error');
-    } else {
-      return AuthResponseDto.fromJson(response.data);
-    }
+    return AuthResponseDto.fromJson(response.data);
   }
 }

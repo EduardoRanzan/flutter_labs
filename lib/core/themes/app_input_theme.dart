@@ -20,6 +20,14 @@ class AppInputTheme {
           width: 2,
         ),
       ),
+
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+        borderSide: BorderSide(
+          color: cs.error,
+          width: 2,
+        ),
+      ),
     );
   }
 }

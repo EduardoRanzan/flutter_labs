@@ -5,5 +5,7 @@
   "password": "Password",
   "submitAuth": "Login",
   "UnauthorizedException": "Invalid credentials",
-  "GenericaException": "Unexpected error"
+  "GenericaException": "Unexpected error",
+  "success_login": "Login successful",
+  "required": "This field is required"
 }

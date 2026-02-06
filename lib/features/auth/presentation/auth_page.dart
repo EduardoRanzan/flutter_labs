@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_labs/core/widgets/app_snack_bar.dart';
 import 'package:flutter_labs/features/auth/entity/auth_request_dto.dart';
+import 'package:flutter_labs/features/auth/entity/auth_response_dto.dart';
 import 'package:flutter_labs/features/auth/services/auth_service.dart';
 import 'package:flutter_labs/l10n/app_localizations.dart';
 
@@ -16,6 +18,7 @@ class _AuthPageState extends State<AuthPage> {
   final _loginController = TextEditingController();
   final _passwordController = TextEditingController();
   late final AuthService _authService;
+  bool _isLoading = false;
 
   @override
   void initState() {
@@ -31,13 +34,23 @@ class _AuthPageState extends State<AuthPage> {
   }
 
   Future<void> _submit() async{
+    if (_isLoading) return;
+    if (!(_formKey.currentState?.validate() ?? false)) return;
+
+    setState(() {
+      _isLoading = true;
+    });
+
+
     try {
       AuthRequestDto body = AuthRequestDto(
         username: _loginController.text,
         password: _passwordController.text,
       );
-
       await _authService.login(body);
+      ScaffoldMessenger.of(context).showSnackBar(
+          AppSnackBar.AppSnackBarSucess(context, AppLocalizations.of(context)?.success_login ?? '', true)
+      );
       Navigator.of(context).pushNamed('/home');
     } on DioException catch (e) {
       if (e.response?.statusCode == 401) {
@@ -47,12 +60,16 @@ class _AuthPageState extends State<AuthPage> {
       }
     }catch (e) {
       _showSnackBar(AppLocalizations.of(context)?.generica_exception ?? '');
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
     }
   }
 
   void _showSnackBar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: Theme.of(context).colorScheme.error),
+        AppSnackBar.AppSnackBarError(context, message)
     );
   }
 
@@ -96,21 +113,39 @@ class _AuthPageState extends State<AuthPage> {
             children: [
               TextFormField(
                 controller: _loginController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return AppLocalizations.of(context)?.required ?? '';
+                  }
+                  return null;
+                },
                 decoration: InputDecoration(
                   labelText: AppLocalizations.of(context)?.login ?? '',
                 )
               ),
               TextFormField(
                 controller: _passwordController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return AppLocalizations.of(context)?.required ?? '';
+                  }
+                  return null;
+                },
                 decoration: InputDecoration(
                   labelText: AppLocalizations.of(context)?.password ?? '',
                 )
               ),
               FilledButton(
-                onPressed: _submit,
-                child: Text(AppLocalizations.of(context)?.submitAuth ?? ''),
+                onPressed: _isLoading ? null : _submit,
                 style: ButtonStyle(
                 ),
+                child: _isLoading ?
+                  SizedBox(
+                    width: 20,
+                    height: 20,
+                    child: CircularProgressIndicator()
+                  ) :
+                  Text(AppLocalizations.of(context)?.submitAuth ?? ''),
               ),
             ],
           ),
