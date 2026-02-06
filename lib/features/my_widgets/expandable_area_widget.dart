@@ -15,7 +15,6 @@ class _ExpandableAreaWidgetState extends State<ExpandableAreaWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(title: 'Texto Expansível',),
       body: _buildBody(),
     );
   }

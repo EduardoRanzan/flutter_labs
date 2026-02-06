@@ -13,7 +13,6 @@ class _FacialCollectWidgetState extends State<FacialCollectWidget>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(title: 'Coleta Facial'),
       body: Padding(
         padding: EdgeInsetsGeometry.all(10), 
         child: _buildBody(),)

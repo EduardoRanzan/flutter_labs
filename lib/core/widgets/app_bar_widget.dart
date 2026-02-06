@@ -1,32 +1,32 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AppBarWidget extends StatelessWidget
-    implements PreferredSizeWidget {
-  final String title;
+class AppBarWidget {
 
-  const AppBarWidget({super.key, required this.title});
-
-  @override
-  Widget build(BuildContext context) {
+  static PreferredSizeWidget appBar(
+      BuildContext context,
+      {
+        String? title,
+        List<Widget>? leading,
+        List<Widget>? actions,
+        Widget? flexibleSpace,
+        bool? centerTitle,
+      }
+      ) {
     return AppBar(
-      backgroundColor: Theme.of(context).colorScheme.primary,
-      iconTheme: const IconThemeData(
-        color: Colors.white,
-      ),
-      title: Center(
-        child: Text(
-          title,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-          ),
+      title: title != null ? Text(
+        title,
+        style: TextStyle(
+          color: Theme.of(context).colorScheme.onPrimary,
         ),
-      )
+      ) : null,
+      leading: leading != null ? Row(
+        children: leading,
+      ) : null,
+      actions: actions,
+      flexibleSpace: flexibleSpace,
+      automaticallyImplyLeading: false,
+      centerTitle: true,
+      backgroundColor: Theme.of(context).colorScheme.primary,
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

@@ -15,7 +15,6 @@ class _EmojiButtonState extends State<EmojiButton> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(title: 'Botão de emoji',),
       body: Padding(
           padding: const EdgeInsetsGeometry.all(15),
           child: Center(

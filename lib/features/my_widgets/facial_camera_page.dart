@@ -69,7 +69,6 @@ class _FacialCameraPageState extends State<FacialCameraPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(title: 'Coleta Facial'),
       body: _isInitialized
           ? Padding(
           padding: EdgeInsetsGeometry.all(10),

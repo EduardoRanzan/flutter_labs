@@ -37,7 +37,6 @@ class _ApiCallsWidgetState extends State<ApiCallsWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(title: 'Chamadas de Api'),
       body: Padding(
         padding: const EdgeInsetsGeometry.all(15),
         child: _buildBody(),

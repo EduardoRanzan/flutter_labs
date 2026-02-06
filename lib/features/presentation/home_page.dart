@@ -1,8 +1,4 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_labs/core/widgets/app_bar_widget.dart';
-import 'package:flutter_labs/core/widgets/list_widgets_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -15,27 +11,49 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(title: 'Flutter Labs'),
       body: _buildBody(),
     );
   }
 
   Widget _buildBody() {
-    return Container(
-      padding: EdgeInsets.all(15),
+    return SafeArea(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 15,
         children: [
-          Text(
-            'Lista de Widgets que criei para aprendizado:',
-            textAlign: TextAlign.justify,
-          ),
-          Expanded(
-          child: ListWidgetsPage()
-          )
-        ]
-      ),
+          _headers(),
+          _actions(),
+          _content(),
+        ],
+      )
+    );
+  }
+
+  Widget _headers() {
+    return Card(
+      color: Theme.of(context).colorScheme.primary,
+      child: SizedBox(
+        width: double.infinity,
+        height: 100,
+        child: Text('data')),
+    );
+  }
+
+  Widget _actions() {
+    return Card(
+      color: Theme.of(context).colorScheme.secondary,
+      child: SizedBox(
+          width: double.infinity,
+          height: 80,
+          child: Text('data')),
+    );
+  }
+
+  Widget _content() {
+    return Card(
+      color: Theme.of(context).colorScheme.tertiary,
+      child: SizedBox(
+          width: double.infinity,
+          height: 300,
+          child: Text('data')),
     );
   }
 }
