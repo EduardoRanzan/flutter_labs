@@ -31,4 +31,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get required => 'This field is required';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get widgets => 'Widgets';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get logout => 'Log out';
 }

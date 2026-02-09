@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_labs/features/auth/data/auth_service.dart';
 import 'package:flutter_labs/features/auth/entity/auth_request_dto.dart';
-import 'package:flutter_labs/core/widgets/app_bar_widget.dart';
 
 class ApiCallsWidget extends StatefulWidget{
   const ApiCallsWidget({super.key});

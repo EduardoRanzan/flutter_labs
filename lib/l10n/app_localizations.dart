@@ -145,6 +145,30 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Este campo é obrigatório'**
   String get required;
+
+  /// No description provided for @home.
+  ///
+  /// In pt, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @widgets.
+  ///
+  /// In pt, this message translates to:
+  /// **'Widgets'**
+  String get widgets;
+
+  /// No description provided for @profile.
+  ///
+  /// In pt, this message translates to:
+  /// **'Perfil'**
+  String get profile;
+
+  /// No description provided for @logout.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sair'**
+  String get logout;
 }
 
 class _AppLocalizationsDelegate

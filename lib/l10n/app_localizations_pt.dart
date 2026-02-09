@@ -31,4 +31,16 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get required => 'Este campo é obrigatório';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get widgets => 'Widgets';
+
+  @override
+  String get profile => 'Perfil';
+
+  @override
+  String get logout => 'Sair';
 }

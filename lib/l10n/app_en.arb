@@ -7,5 +7,9 @@
   "UnauthorizedException": "Invalid credentials",
   "GenericaException": "Unexpected error",
   "success_login": "Login successful",
-  "required": "This field is required"
+  "required": "This field is required",
+  "home": "Home",
+  "widgets": "Widgets",
+  "profile": "Profile",
+  "logout": "Log out"
 }

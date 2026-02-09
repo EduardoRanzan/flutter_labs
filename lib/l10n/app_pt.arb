@@ -7,5 +7,9 @@
   "unauthorized_exception": "Credenciáis inválidas",
   "generica_exception": "Erro inesperado",
   "success_login": "Login realizado com sucesso",
-  "required": "Este campo é obrigatório"
+  "required": "Este campo é obrigatório",
+  "home": "Home",
+  "widgets": "Widgets",
+  "profile": "Perfil",
+  "logout": "Sair"
 }

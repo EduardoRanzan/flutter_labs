@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_labs/core/widgets/app_snack_bar.dart';
 import 'package:flutter_labs/features/auth/entity/auth_request_dto.dart';
-import 'package:flutter_labs/features/auth/entity/auth_response_dto.dart';
 import 'package:flutter_labs/features/auth/services/auth_service.dart';
 import 'package:flutter_labs/l10n/app_localizations.dart';
 

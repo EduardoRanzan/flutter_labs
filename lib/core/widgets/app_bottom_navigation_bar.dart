@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_labs/l10n/app_localizations.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
   final int currentIndex;
@@ -15,18 +16,43 @@ class AppBottomNavigationBar extends StatelessWidget {
     return BottomNavigationBar(
       currentIndex: currentIndex,
       onTap: onTap,
-      items: const [
+
+      showUnselectedLabels: true,
+      unselectedIconTheme: IconThemeData(
+        color: Theme.of(context).colorScheme.outline,
+        size: 30,
+      ),
+      unselectedItemColor: Theme.of(context).colorScheme.outline,
+
+      showSelectedLabels: false,
+      selectedIconTheme: IconThemeData(
+        color: Theme.of(context).colorScheme.onPrimary,
+        size: 35,
+        shadows: [
+          Shadow(
+            offset: Offset(0, 1),
+            blurRadius: 1,
+          ),
+          Shadow(
+            offset: Offset(0, 2),
+            blurRadius: 8,
+          ),
+        ],
+      ),
+
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
+          icon: Icon(Icons.home_rounded),
+          label: AppLocalizations.of(context)?.home ?? '',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.line_weight_sharp),
-          label: 'Widgets',
+          label: AppLocalizations.of(context)?.widgets ?? '',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
-          label: 'Perfil',
+          label: AppLocalizations.of(context)?.profile ?? '',
         ),
       ],
     );
