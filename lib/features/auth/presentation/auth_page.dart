@@ -1,9 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_labs/core/storage/secure_storage.dart';
 import 'package:flutter_labs/core/widgets/app_snack_bar.dart';
 import 'package:flutter_labs/features/auth/entity/auth_request_dto.dart';
 import 'package:flutter_labs/features/auth/services/auth_service.dart';
 import 'package:flutter_labs/l10n/app_localizations.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class AuthPage extends StatefulWidget{
   const AuthPage ({super.key});
@@ -16,6 +18,7 @@ class _AuthPageState extends State<AuthPage> {
   final _formKey = GlobalKey<FormState>();
   final _loginController = TextEditingController();
   final _passwordController = TextEditingController();
+  late final SecureStorage _secureStorage;
   late final AuthService _authService;
   bool _isLoading = false;
 
@@ -23,6 +26,9 @@ class _AuthPageState extends State<AuthPage> {
   void initState() {
     super.initState();
     _authService = AuthService();
+    _secureStorage = SecureStorage(
+      const FlutterSecureStorage()
+    );
   }
 
   @override
@@ -46,7 +52,8 @@ class _AuthPageState extends State<AuthPage> {
         username: _loginController.text,
         password: _passwordController.text,
       );
-      await _authService.login(body);
+      final response = await _authService.login(body);
+      await _secureStorage.saveResponse(token: response.access_token, userName: response.name, userId: response.id);
       ScaffoldMessenger.of(context).showSnackBar(
           AppSnackBar.AppSnackBarSucess(context, AppLocalizations.of(context)?.success_login ?? '', true)
       );

@@ -11,5 +11,6 @@
   "home": "Home",
   "widgets": "Widgets",
   "profile": "Perfil",
-  "logout": "Sair"
+  "logout": "Sair",
+  "welcome": "Bem vindo"
 }

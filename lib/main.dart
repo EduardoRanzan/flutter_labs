@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/home',
+      initialRoute: '/splash',
       routes: AppRoutes.initRoutes(),
       theme: AppTheme.initTheme(),
       localizationsDelegates: AppLocalizations.localizationsDelegates,

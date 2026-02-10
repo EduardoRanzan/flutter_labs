@@ -11,5 +11,6 @@
   "home": "Home",
   "widgets": "Widgets",
   "profile": "Profile",
-  "logout": "Log out"
+  "logout": "Log out",
+  "welcome": "Welcome"
 }

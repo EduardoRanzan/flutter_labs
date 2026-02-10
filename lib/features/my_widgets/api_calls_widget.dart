@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_labs/features/auth/data/auth_service.dart';
 import 'package:flutter_labs/features/auth/entity/auth_request_dto.dart';
 
 class ApiCallsWidget extends StatefulWidget{
@@ -11,12 +10,10 @@ class ApiCallsWidget extends StatefulWidget{
 }
 
 class _ApiCallsWidgetState extends State<ApiCallsWidget> {
-  late final AuthService _authService;
 
   @override
   void initState() {
     super.initState();
-    _authService = AuthService();
   }
 
   Future<void> _auth() async {
@@ -24,13 +21,6 @@ class _ApiCallsWidgetState extends State<ApiCallsWidget> {
       username: '1',
       password: '1',
     );
-
-    try {
-      final result = await _authService.login(body);
-      print(result);
-    } catch (e) {
-      throw e;
-    }
   }
 
   @override

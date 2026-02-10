@@ -43,4 +43,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get logout => 'Sair';
+
+  @override
+  String get welcome => 'Bem vindo';
 }

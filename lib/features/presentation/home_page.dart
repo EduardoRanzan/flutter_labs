@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_labs/core/storage/secure_storage.dart';
+import 'package:flutter_labs/core/widgets/app_text.dart';
 import 'package:flutter_labs/features/dashboard/presentation/app_dashboard.dart';
 import 'package:flutter_labs/features/recent/presentation/app_recent.dart';
+import 'package:flutter_labs/l10n/app_localizations.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -10,10 +14,32 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late final SecureStorage _secureStorage;
+  String? _userName;
+
+  @override
+  void initState() {
+    super.initState();
+    _secureStorage = SecureStorage(
+      const FlutterSecureStorage()
+    );
+    _loadUserInfo();
+  }
+
+  Future<void> _loadUserInfo() async {
+    final name = await _secureStorage.getUserName();
+
+    if(!mounted) return;
+
+    setState(() {
+      _userName = name;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: _buildBody()),
+      body: SafeArea(child: Padding(padding: EdgeInsetsGeometry.fromLTRB(0, 0, 0, 5), child: _buildBody())),
     );
   }
 
@@ -21,14 +47,22 @@ class _MyHomePageState extends State<MyHomePage> {
     return Column(
       children: [
         Expanded(
-          flex: 2,
+          flex: 1,
+          child: _buildWelcome()
+        ),
+        Expanded(
+          flex: 7,
           child: AppDashboard(),
         ),
         Expanded(
-          flex: 1,
+          flex: 4,
           child: AppRecent(),
         ),
       ],
     );
+  }
+
+  Widget _buildWelcome() {
+    return Center(child: AppText.title(context, '${AppLocalizations.of(context)?.welcome}, $_userName',));
   }
 }

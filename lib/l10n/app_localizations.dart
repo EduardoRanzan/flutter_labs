@@ -169,6 +169,12 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Sair'**
   String get logout;
+
+  /// No description provided for @welcome.
+  ///
+  /// In pt, this message translates to:
+  /// **'Bem vindo'**
+  String get welcome;
 }
 
 class _AppLocalizationsDelegate
