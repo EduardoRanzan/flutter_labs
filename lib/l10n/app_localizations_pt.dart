@@ -18,13 +18,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get password => 'Senha';
 
   @override
-  String get submitAuth => 'Entrar';
+  String get submit_auth => 'Entrar';
 
   @override
-  String get unauthorized_exception => 'Credenciáis inválidas';
+  String get unauthorized_exception => 'Credenciais inválidas';
 
   @override
-  String get generica_exception => 'Erro inesperado';
+  String get generic_exception => 'Erro inesperado';
 
   @override
   String get success_login => 'Login realizado com sucesso';
@@ -45,5 +45,5 @@ class AppLocalizationsPt extends AppLocalizations {
   String get logout => 'Sair';
 
   @override
-  String get welcome => 'Bem vindo';
+  String get welcome => 'Bem-vindo';
 }

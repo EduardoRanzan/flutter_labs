@@ -116,23 +116,23 @@ abstract class AppLocalizations {
   /// **'Senha'**
   String get password;
 
-  /// No description provided for @submitAuth.
+  /// No description provided for @submit_auth.
   ///
   /// In pt, this message translates to:
   /// **'Entrar'**
-  String get submitAuth;
+  String get submit_auth;
 
   /// No description provided for @unauthorized_exception.
   ///
   /// In pt, this message translates to:
-  /// **'Credenciáis inválidas'**
+  /// **'Credenciais inválidas'**
   String get unauthorized_exception;
 
-  /// No description provided for @generica_exception.
+  /// No description provided for @generic_exception.
   ///
   /// In pt, this message translates to:
   /// **'Erro inesperado'**
-  String get generica_exception;
+  String get generic_exception;
 
   /// No description provided for @success_login.
   ///
@@ -173,7 +173,7 @@ abstract class AppLocalizations {
   /// No description provided for @welcome.
   ///
   /// In pt, this message translates to:
-  /// **'Bem vindo'**
+  /// **'Bem-vindo'**
   String get welcome;
 }
 

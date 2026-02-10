@@ -3,14 +3,14 @@
   "appTitle": "Flutter Labs",
   "login": "Login",
   "password": "Senha",
-  "submitAuth": "Entrar",
-  "unauthorized_exception": "Credenciáis inválidas",
-  "generica_exception": "Erro inesperado",
+  "submit_auth": "Entrar",
+  "unauthorized_exception": "Credenciais inválidas",
+  "generic_exception": "Erro inesperado",
   "success_login": "Login realizado com sucesso",
   "required": "Este campo é obrigatório",
   "home": "Home",
   "widgets": "Widgets",
   "profile": "Perfil",
   "logout": "Sair",
-  "welcome": "Bem vindo"
+  "welcome": "Bem-vindo"
 }

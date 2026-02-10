@@ -18,13 +18,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get password => 'Password';
 
   @override
-  String get submitAuth => 'Login';
+  String get submit_auth => 'Login';
 
   @override
-  String get unauthorized_exception => 'Credenciáis inválidas';
+  String get unauthorized_exception => 'Invalid credentials';
 
   @override
-  String get generica_exception => 'Erro inesperado';
+  String get generic_exception => 'Unexpected error';
 
   @override
   String get success_login => 'Login successful';

@@ -58,10 +58,10 @@ class _AuthPageState extends State<AuthPage> {
       if (e.response?.statusCode == 401) {
         _showSnackBar(AppLocalizations.of(context)?.unauthorized_exception ?? '');
       } else {
-        _showSnackBar(AppLocalizations.of(context)?.generica_exception ?? '');
+        _showSnackBar(AppLocalizations.of(context)?.generic_exception ?? '');
       }
     }catch (e) {
-      _showSnackBar(AppLocalizations.of(context)?.generica_exception ?? '');
+      _showSnackBar(AppLocalizations.of(context)?.generic_exception ?? '');
     } finally {
       setState(() {
         _isLoading = false;
@@ -147,7 +147,7 @@ class _AuthPageState extends State<AuthPage> {
                     height: 20,
                     child: CircularProgressIndicator()
                   ) :
-                  Text(AppLocalizations.of(context)?.submitAuth ?? ''),
+                  Text(AppLocalizations.of(context)?.submit_auth ?? ''),
               ),
             ],
           ),
