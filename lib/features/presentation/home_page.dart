@@ -4,7 +4,6 @@ import 'package:flutter_labs/core/widgets/app_text.dart';
 import 'package:flutter_labs/features/dashboard/presentation/app_dashboard.dart';
 import 'package:flutter_labs/features/recent/presentation/app_recent.dart';
 import 'package:flutter_labs/l10n/app_localizations.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -14,15 +13,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late final SecureStorage _secureStorage;
+  final _secureStorage = SecureStorage();
   String? _userName;
 
   @override
   void initState() {
     super.initState();
-    _secureStorage = SecureStorage(
-      const FlutterSecureStorage()
-    );
     _loadUserInfo();
   }
 

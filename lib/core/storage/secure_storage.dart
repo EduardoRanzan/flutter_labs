@@ -1,12 +1,20 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class SecureStorage {
+  static final SecureStorage _instance = SecureStorage._internal();
+
+  factory SecureStorage() {
+    return _instance;
+  }
+
+  final FlutterSecureStorage _storage;
+
+  SecureStorage._internal()
+      : _storage = const FlutterSecureStorage();
+
   static const _token = 'access_token';
   static const _userName = 'name';
   static const _userId = 'id';
-
-  final FlutterSecureStorage _storage;
-  SecureStorage(this._storage);
 
   Future<void> saveResponse({
     required String token,
@@ -22,7 +30,5 @@ class SecureStorage {
   Future<String?> getUserId() => _storage.read(key: _userId);
   Future<String?> getUserName() => _storage.read(key: _userName);
 
-  Future<void> clear() async {
-    await _storage.deleteAll();
-  }
+  Future<void> clear() => _storage.deleteAll();
 }

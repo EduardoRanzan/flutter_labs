@@ -5,7 +5,6 @@ import 'package:flutter_labs/core/widgets/app_snack_bar.dart';
 import 'package:flutter_labs/features/auth/entity/auth_request_dto.dart';
 import 'package:flutter_labs/features/auth/services/auth_service.dart';
 import 'package:flutter_labs/l10n/app_localizations.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class AuthPage extends StatefulWidget{
   const AuthPage ({super.key});
@@ -18,7 +17,7 @@ class _AuthPageState extends State<AuthPage> {
   final _formKey = GlobalKey<FormState>();
   final _loginController = TextEditingController();
   final _passwordController = TextEditingController();
-  late final SecureStorage _secureStorage;
+  final _secureStorage = SecureStorage();
   late final AuthService _authService;
   bool _isLoading = false;
 
@@ -26,9 +25,6 @@ class _AuthPageState extends State<AuthPage> {
   void initState() {
     super.initState();
     _authService = AuthService();
-    _secureStorage = SecureStorage(
-      const FlutterSecureStorage()
-    );
   }
 
   @override
@@ -57,7 +53,7 @@ class _AuthPageState extends State<AuthPage> {
       ScaffoldMessenger.of(context).showSnackBar(
           AppSnackBar.AppSnackBarSucess(context, AppLocalizations.of(context)?.success_login ?? '', true)
       );
-      Navigator.of(context).pushNamed('/home');
+      Navigator.of(context).pushReplacementNamed('/home');
     } on DioException catch (e) {
       if (e.response?.statusCode == 401) {
         _showSnackBar(AppLocalizations.of(context)?.unauthorized_exception ?? '');

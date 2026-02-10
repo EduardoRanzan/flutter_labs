@@ -1,18 +1,24 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_labs/core/storage/secure_storage.dart';
 
 class AuthInterceptor extends Interceptor {
+  final SecureStorage secureStorage;
+
+  AuthInterceptor(this.secureStorage);
+
+  static const publicRoutes = [
+    '/login',
+  ];
+
   @override
-  void onRequest(
+  Future<void> onRequest(
       RequestOptions options,
       RequestInterceptorHandler handler,
-      ) {
-    const publicRoutes = [
-      '/login'
-    ];
-
+      ) async {
     if (!publicRoutes.contains(options.path)) {
-      final token = '';
-      if (token.isNotEmpty) {
+      final token = await secureStorage.getToken();
+
+      if (token != null && token.isNotEmpty) {
         options.headers['Authorization'] = 'Bearer $token';
       }
     }
