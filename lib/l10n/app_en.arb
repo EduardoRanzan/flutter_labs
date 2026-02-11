@@ -12,5 +12,9 @@
   "widgets": "Widgets",
   "profile": "Profile",
   "logout": "Log out",
-  "welcome": "Welcome"
+  "welcome": "Welcome",
+  "master_data": "Master Data",
+  "emoji_button": "Emoji Button",
+  "facial_collect": "Facial Collect",
+  "expandable_area": "Expandable Area"
 }

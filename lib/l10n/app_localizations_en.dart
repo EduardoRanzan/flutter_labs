@@ -46,4 +46,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get welcome => 'Welcome';
+
+  @override
+  String get master_data => 'Master Data';
+
+  @override
+  String get emoji_button => 'Emoji Button';
+
+  @override
+  String get facial_collect => 'Facial Collect';
+
+  @override
+  String get expandable_area => 'Expandable Area';
 }

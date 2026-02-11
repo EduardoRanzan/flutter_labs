@@ -18,8 +18,8 @@ class DioClient {
     dio = Dio(
       BaseOptions(
         baseUrl: dotenv.get('API_URL'),
-        connectTimeout: const Duration(seconds: 10),
-        receiveTimeout: const Duration(seconds: 10),
+        connectTimeout: const Duration(seconds: 60),
+        receiveTimeout: const Duration(seconds: 60),
       ),
     );
     dio.interceptors.add(AuthInterceptor(secureStorage));

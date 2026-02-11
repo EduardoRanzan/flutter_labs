@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_labs/core/widgets/app_bottom_navigation_bar.dart';
-import 'package:flutter_labs/features/my_widgets/my_widgets_page.dart';
+import 'package:flutter_labs/features/master_data/presentation/master_data_page.dart';
 import 'package:flutter_labs/features/presentation/home_page.dart';
 import 'package:flutter_labs/features/profile/presentation/profile_page.dart';
 
@@ -16,7 +16,7 @@ class _MainHomePageState extends State<MainHomePage> {
 
   final List<Widget> _pages = const [
     MyHomePage(),
-    MyWidgetsPage(),
+    MasterDataPage(),
     ProfilePage(),
   ];
 

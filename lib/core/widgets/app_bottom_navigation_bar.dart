@@ -47,8 +47,8 @@ class AppBottomNavigationBar extends StatelessWidget {
           label: AppLocalizations.of(context)?.home ?? '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.line_weight_sharp),
-          label: AppLocalizations.of(context)?.widgets ?? '',
+          icon: Icon(Icons.inventory_2),
+          label: AppLocalizations.of(context)?.master_data ?? '',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),

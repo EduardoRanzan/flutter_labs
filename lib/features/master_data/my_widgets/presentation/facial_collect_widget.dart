@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_labs/features/my_widgets/facial_camera_page.dart';
+import 'package:flutter_labs/features/master_data/my_widgets/presentation/facial_camera_page.dart';
 
 class FacialCollectWidget extends StatefulWidget {
   const FacialCollectWidget({super.key});

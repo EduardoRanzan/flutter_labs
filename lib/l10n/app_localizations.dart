@@ -175,6 +175,30 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Bem-vindo'**
   String get welcome;
+
+  /// No description provided for @master_data.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cadastros'**
+  String get master_data;
+
+  /// No description provided for @emoji_button.
+  ///
+  /// In pt, this message translates to:
+  /// **'Botão de Emoji'**
+  String get emoji_button;
+
+  /// No description provided for @facial_collect.
+  ///
+  /// In pt, this message translates to:
+  /// **'Coleta Facial'**
+  String get facial_collect;
+
+  /// No description provided for @expandable_area.
+  ///
+  /// In pt, this message translates to:
+  /// **'Área Expandível'**
+  String get expandable_area;
 }
 
 class _AppLocalizationsDelegate

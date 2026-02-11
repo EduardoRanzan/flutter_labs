@@ -20,6 +20,17 @@ class AppText extends StatelessWidget {
     );
   }
 
+  factory AppText.titleOnSecondary(BuildContext context, String text) {
+    return AppText(
+      text,
+      style: TextStyle(
+        fontWeight: FontWeight.w900,
+        fontSize: 18,
+        color: Theme.of(context).colorScheme.onSecondary,
+      ),
+    );
+  }
+
   factory AppText.titleInverse(BuildContext context, String text) {
     return AppText(
       text,

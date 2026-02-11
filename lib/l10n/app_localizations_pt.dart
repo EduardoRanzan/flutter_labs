@@ -46,4 +46,16 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get welcome => 'Bem-vindo';
+
+  @override
+  String get master_data => 'Cadastros';
+
+  @override
+  String get emoji_button => 'Botão de Emoji';
+
+  @override
+  String get facial_collect => 'Coleta Facial';
+
+  @override
+  String get expandable_area => 'Área Expandível';
 }
