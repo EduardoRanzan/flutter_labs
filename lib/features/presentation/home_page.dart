@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: Padding(padding: EdgeInsetsGeometry.fromLTRB(0, 0, 0, 5), child: _buildBody())),
+      body: SafeArea(child: Padding(padding: EdgeInsetsGeometry.fromLTRB(10, 0, 10, 5), child: _buildBody())),
     );
   }
 

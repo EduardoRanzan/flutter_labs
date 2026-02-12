@@ -13,7 +13,7 @@ class _AppRecent extends State<AppRecent> {
     return SizedBox(
       width: double.infinity,
       child: Card(
-          color: Theme.of(context).colorScheme.tertiary,
+          color: Theme.of(context).colorScheme.tertiaryContainer,
           child: Text('')
       ),
     );

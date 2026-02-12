@@ -13,7 +13,7 @@ class _AppDashboard extends State<AppDashboard> {
     return SizedBox(
       width: double.infinity,
       child: Card(
-        color: Theme.of(context).colorScheme.primary,
+        color: Theme.of(context).colorScheme.primaryContainer,
         child: Text('')
       ),
     );

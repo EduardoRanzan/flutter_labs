@@ -49,13 +49,13 @@ class _MasterDataPage extends State<MasterDataPage> {
         itemExtent: 150,
         children: widgets.map((widget) {
           return Card(
-            color: Theme.of(context).colorScheme.secondary,
+            color: Theme.of(context).colorScheme.primaryContainer,
             child: SizedBox.expand(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   widget.icon,
-                  AppText.titleOnSecondary(context, widget.label)
+                  AppText.titleOnSecondary(context, widget.label, textAlign: TextAlign.center,),
                 ]
               )
             )
@@ -73,18 +73,20 @@ class _MasterDataPage extends State<MasterDataPage> {
       MyWidgetsDto(
         route: '/master-data/widgets/emoji-buton',
         label: AppLocalizations.of(context)?.emoji_button ?? '',
-        icon: Icon(Icons.emoji_emotions, color: Theme.of(context).colorScheme.onSecondary,),
+        icon: Icon(Icons.emoji_emotions_outlined, color: Theme.of(context).colorScheme.onPrimaryContainer,),
       ),
       MyWidgetsDto(
         route: '/master-data/widgets/facial-collect',
         label: AppLocalizations.of(context)?.facial_collect ?? '',
-        icon: Icon(Icons.camera_alt, color: Theme.of(context).colorScheme.onSecondary,),
+        icon: Icon(Icons.camera_alt_outlined, color: Theme.of(context).colorScheme.onPrimaryContainer,),
       ),
       MyWidgetsDto(
         route: '/master-data/widgets/expandable-area',
         label: AppLocalizations.of(context)?.expandable_area ?? '',
-        icon: Icon(Icons.wrap_text, color: Theme.of(context).colorScheme.onSecondary,),
+        icon: Icon(Icons.wrap_text_outlined, color: Theme.of(context).colorScheme.onPrimaryContainer,),
       ),
     ];
   }
+
+
 }

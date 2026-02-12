@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_labs/core/themes/app_card_theme.dart';
 import 'package:flutter_labs/core/themes/app_divider_theme.dart';
+import 'package:flutter_labs/core/themes/app_icon_theme.dart';
 import 'package:flutter_labs/core/themes/app_input_theme.dart';
 
 class AppTheme {
@@ -13,6 +15,8 @@ class AppTheme {
       colorScheme: colorScheme,
       inputDecorationTheme: AppInputTheme.initInput(colorScheme),
       dividerTheme: AppDividerTheme.initDivider(colorScheme),
+      iconTheme: AppIconTheme.initIcon(colorScheme),
+      cardTheme: AppCardTheme.initCard(colorScheme),
     );
   }
 }
