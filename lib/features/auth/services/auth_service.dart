@@ -7,7 +7,7 @@ class AuthService {
 
   Future<AuthResponseDto> login(AuthRequestDto body) async {
     final response = await dio.post(
-      'sessions',
+      'auth/v1/token?grant_type=password',
       data: body.toJson()
     );
 

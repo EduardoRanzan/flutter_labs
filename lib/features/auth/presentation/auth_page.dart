@@ -49,13 +49,13 @@ class _AuthPageState extends State<AuthPage> {
         password: _passwordController.text,
       );
       final response = await _authService.login(body);
-      await _secureStorage.saveResponse(token: response.access_token, userName: response.name, userId: response.id);
+      await _secureStorage.saveResponse(token: response.accessToken, userName: response.user.email, userId: response.user.id);
       ScaffoldMessenger.of(context).showSnackBar(
           AppSnackBar.AppSnackBarSucess(context, AppLocalizations.of(context)?.success_login ?? '', true)
       );
       Navigator.of(context).pushReplacementNamed('/home');
     } on DioException catch (e) {
-      if (e.response?.statusCode == 401) {
+      if (e.response?.statusCode == 400) {
         _showSnackBar(AppLocalizations.of(context)?.unauthorized_exception ?? '');
       } else {
         _showSnackBar(AppLocalizations.of(context)?.generic_exception ?? '');

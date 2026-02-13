@@ -1,18 +1,30 @@
+import 'package:flutter_labs/features/user/entity/user_dto.dart';
+
 class AuthResponseDto {
-  final String id;
-  final String name;
-  final String access_token;
+  final String accessToken;
+  final String refreshToken;
+  final String tokenType;
+  final int expiresIn;
+  final int expiresAt;
+  final UserDto user;
 
   AuthResponseDto({
-    required this.id,
-    required this.name,
-    required this.access_token,
+    required this.accessToken,
+    required this.refreshToken,
+    required this.tokenType,
+    required this.expiresIn,
+    required this.expiresAt,
+    required this.user,
   });
 
-  factory AuthResponseDto.fromJson(Map<String, dynamic> json) =>
-      AuthResponseDto(
-          id: json['id'],
-          name: json['nome'],
-          access_token: json['access_token']
-      );
+  factory AuthResponseDto.fromJson(Map<String, dynamic> json) {
+    return AuthResponseDto(
+      accessToken: json['access_token'],
+      refreshToken: json['refresh_token'],
+      tokenType: json['token_type'],
+      expiresIn: json['expires_in'],
+      expiresAt: json['expires_at'],
+      user: UserDto.fromJson(json['user']),
+    );
+  }
 }

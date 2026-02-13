@@ -9,12 +9,12 @@ class AuthRequestDto {
 
   factory AuthRequestDto.fromJson(Map<String, dynamic> json) =>
       AuthRequestDto(
-          username: json['username'],
+          username: json['email'],
           password: json['password']
       );
 
   Map<String, dynamic> toJson() => {
-      'username': username,
+      'email': username,
       'password': password,
   };
 }
