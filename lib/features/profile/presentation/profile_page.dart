@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_labs/core/storage/secure_storage.dart';
+import 'package:flutter_labs/features/auth/services/auth_service.dart';
 import 'package:flutter_labs/l10n/app_localizations.dart';
 
 class ProfilePage extends StatefulWidget{
@@ -10,13 +11,19 @@ class ProfilePage extends StatefulWidget{
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final _secureStorage = SecureStorage();
+  late final AuthService _authService;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(child: Padding(padding: EdgeInsetsGeometry.fromLTRB(0, 10, 0, 10), child: _buildBody())),
     );
+  }
+
+  @override
+  void initState() {
+    _authService = AuthService();
+    super.initState();
   }
   
   Widget _buildBody() {
@@ -31,7 +38,9 @@ class _ProfilePageState extends State<ProfilePage> {
           child: SizedBox(
             width: double.infinity,
             child: FilledButton(
-              onPressed: () {_secureStorage.clear(); Navigator.pushNamed(context, '/login');},
+              onPressed: () {
+                _authService.logout();
+              },
               child: Text(AppLocalizations.of(context)?.logout ?? '')
             )
           )

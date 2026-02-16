@@ -1,4 +1,4 @@
-import 'package:flutter_labs/features/user/entity/user_dto.dart';
+import 'package:flutter_labs/features/master_data/menu/user/entity/user_dto.dart';
 
 class AuthResponseDto {
   final String accessToken;

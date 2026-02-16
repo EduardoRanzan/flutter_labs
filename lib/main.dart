@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_labs/core/global/app_navigator.dart';
 import 'package:flutter_labs/core/routes/app_routes.dart';
 import 'package:flutter_labs/core/themes/app_theme.dart';
 import 'package:flutter_labs/l10n/app_localizations.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
+      navigatorKey: navigatorKey,
     );
   }
 }
