@@ -25,7 +25,7 @@ class AuthService {
     await secureStorage.clear();
 
     navigatorKey.currentState?.pushNamedAndRemoveUntil('/login', (route) => false);
-    
+
     _isLoggingOut = false;
   }
 }

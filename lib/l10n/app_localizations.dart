@@ -218,11 +218,35 @@ abstract class AppLocalizations {
   /// **'Preço do produto'**
   String get product_price;
 
+  /// No description provided for @product_description.
+  ///
+  /// In pt, this message translates to:
+  /// **'Descrição do produto'**
+  String get product_description;
+
   /// No description provided for @products_not_found.
   ///
   /// In pt, this message translates to:
   /// **'Nenhum produto encontrado'**
   String get products_not_found;
+
+  /// No description provided for @save.
+  ///
+  /// In pt, this message translates to:
+  /// **'Salvar'**
+  String get save;
+
+  /// No description provided for @dismiss.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cancelar'**
+  String get dismiss;
+
+  /// No description provided for @created.
+  ///
+  /// In pt, this message translates to:
+  /// **'Salvo'**
+  String get created;
 }
 
 class _AppLocalizationsDelegate

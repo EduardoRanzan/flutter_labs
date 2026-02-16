@@ -51,7 +51,7 @@ class _AuthPageState extends State<AuthPage> {
       final response = await _authService.login(body);
       await _secureStorage.saveResponse(token: response.accessToken, userName: response.user.email, userId: response.user.id);
       ScaffoldMessenger.of(context).showSnackBar(
-          AppSnackBar.AppSnackBarSucess(context, AppLocalizations.of(context)?.success_login ?? '', true)
+          AppSnackBar.AppSnackBarSucess(context, AppLocalizations.of(context)?.success_login ?? '', showCloseIcon: true)
       );
       Navigator.of(context).pushReplacementNamed('/home');
     } on DioException catch (e) {
@@ -127,6 +127,7 @@ class _AuthPageState extends State<AuthPage> {
               ),
               TextFormField(
                 controller: _passwordController,
+                obscureText: true,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return AppLocalizations.of(context)?.required ?? '';

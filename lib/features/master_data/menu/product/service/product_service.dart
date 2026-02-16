@@ -4,7 +4,7 @@ import 'package:flutter_labs/core/services/api/app_paged.dart';
 import 'package:flutter_labs/core/services/dio_client.dart';
 import 'package:flutter_labs/features/master_data/menu/product/entity/product_dto.dart';
 
-class ProductService extends AppBaseApi {
+class ProductService implements AppBaseApi<ProductDto> {
   final _dio = DioClient().dio;
 
   String path = 'rest/v1/products?select=*';
@@ -22,18 +22,18 @@ class ProductService extends AppBaseApi {
     );
   }
 
-
   @override
   Future<ProductDto> findById(String id) async {
     final response = await _dio.get('$path&id=eq.$id');
 
-    return ProductDto.fromJson(response.data);
+    final List data = response.data;
+
+    return ProductDto.fromJson(data.first);
   }
 
   @override
-  Future<dynamic> create(body) {
-    // TODO: implement create
-    throw UnimplementedError();
+  Future<void> create(ProductDto body) async {
+    await _dio.post(path, data: body.toJson());
   }
 
   @override

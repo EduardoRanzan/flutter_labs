@@ -69,5 +69,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get product_price => 'Product Price';
 
   @override
+  String get product_description => 'Product Description';
+
+  @override
   String get products_not_found => 'No products found';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get dismiss => 'Dismiss';
+
+  @override
+  String get created => 'Created';
 }

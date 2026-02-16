@@ -3,6 +3,7 @@ import 'package:flutter_labs/core/services/api/app_page_result.dart';
 import 'package:flutter_labs/core/widgets/app_snack_bar.dart';
 import 'package:flutter_labs/core/widgets/app_text.dart';
 import 'package:flutter_labs/features/master_data/menu/product/entity/product_dto.dart';
+import 'package:flutter_labs/features/master_data/menu/product/presentation/product_form_page.dart';
 import 'package:flutter_labs/features/master_data/menu/product/service/product_service.dart';
 import 'package:flutter_labs/l10n/app_localizations.dart';
 
@@ -18,7 +19,7 @@ class _ProductPage extends State<ProductPage> {
   Future<AppPageResult<ProductDto>>? _product;
 
   int actualPage = 1;
-  int pageSize = 5;
+  int pageSize = 7;
 
   @override
   void initState() {
@@ -35,7 +36,11 @@ class _ProductPage extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: _buildBody()),
+      body: SafeArea(
+        child: Padding(padding: EdgeInsetsGeometry.all(10),
+            child: _buildBody()
+        )
+      ),
     );
   }
   
@@ -43,13 +48,13 @@ class _ProductPage extends State<ProductPage> {
     return Column(
       children: [
         Expanded(
+          flex: 1,
+          child: _buildHeader()
+        ),
+        Expanded(
           flex: 9,
           child: _buildProduct(),
         ),
-        Expanded(
-          flex: 1,
-          child: _buildBottomButtons(),
-        )
       ],
     );
   }
@@ -68,16 +73,20 @@ class _ProductPage extends State<ProductPage> {
               ?.products_not_found ?? '');
         }
 
-        if (!snapshot.hasError) {
-          AppSnackBar.AppSnackBarError(context, snapshot.error.toString());
-        }
-
         final products = snapshot.data!.data;
+
+        final total = snapshot.data!.total ?? 0;
+        final maxPage = (total / pageSize);
 
         return Column(
             children: [
               Expanded(
-                  child: _buildProductList(products)
+                flex: 9,
+                child: _buildProductList(products)
+              ),
+              Expanded(
+                flex: 1,
+                child: _buildBottomButtons(maxPage)
               )
             ]
         );
@@ -93,29 +102,60 @@ class _ProductPage extends State<ProductPage> {
         return Card(
             child: ListTile(
               title: AppText.title(context, p.name),
-              subtitle: AppText.body(context, p.price.toString()),
+              subtitle: Row(
+                spacing: 5,
+                children: [
+                  Badge(
+                    label: Text('R\$ ${p.price.toString()}'),
+                    backgroundColor: Theme.of(context).colorScheme.tertiary,
+                  ),
+                  AppText.body(context, p.description.toString()),
+                ],
+              ),
+              enabled: p.status!,
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ProductFormPage(productId: p.id))
+                );
+              },
             )
         );
       }
     );
   }
 
-  Widget _buildBottomButtons() {
+  Widget _buildBottomButtons(double maxPage) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        FilledButton(
+        actualPage != 1 ? FilledButton(
           onPressed: () {
             _previousPage();
           },
           child: Icon(Icons.navigate_before)
-        ),
-        FilledButton(
+        ) : Container(),
+        actualPage < maxPage ? FilledButton(
           onPressed: () {
             _nextPage();
           },
           child: Icon(Icons.navigate_next)
-        ),
+        ) : Container(),
+      ],
+    );
+  }
+
+  Widget _buildHeader() {
+    return Row(
+      spacing: 10,
+      children: [
+        AppText.title(context, AppLocalizations.of(context)?.products ?? ''),
+        FilledButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => ProductFormPage())
+            );
+          },
+          child: Icon(Icons.add))
       ],
     );
   }
@@ -141,8 +181,6 @@ class _ProductPage extends State<ProductPage> {
   }
 
   void loadingProduct(){
-    setState(() {
-      _product = _productService.findAll(page: actualPage, pageSize: pageSize);
-    });
+    _product = _productService.findAll(page: actualPage, pageSize: pageSize);
   }
 }

@@ -5,8 +5,8 @@ class AppSnackBar  {
   static SnackBar AppSnackBarError(
       BuildContext context,
       String message,
-      [bool? showCloseIcon]
-      ) {
+      {bool? showCloseIcon,}
+  ) {
     return SnackBar(
       content: Text(
         message,
@@ -23,7 +23,7 @@ class AppSnackBar  {
   static SnackBar AppSnackBarSucess(
       BuildContext context,
       String message,
-      [bool? showCloseIcon]
+      {bool? showCloseIcon,}
       ) {
     return SnackBar(
       content: Text(

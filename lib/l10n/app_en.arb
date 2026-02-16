@@ -20,5 +20,9 @@
   "products": "products",
   "product_name": "Product Name",
   "product_price": "Product Price",
-  "products_not_found": "No products found"
+  "product_description": "Product Description",
+  "products_not_found": "No products found",
+  "save": "Save",
+  "dismiss": "Dismiss",
+  "created": "Created"
 }

@@ -1,7 +1,7 @@
-abstract class AppBaseApi {
+abstract class AppBaseApi<T> {
   Future findAll();
   Future findById(String id);
-  Future create(dynamic body);
+  Future<void> create(T body);
   Future update(dynamic body);
   Future remove(dynamic body);
 }

@@ -20,5 +20,9 @@
   "products": "Produtos",
   "product_name": "Nome do produto",
   "product_price": "Preço do produto",
-  "products_not_found": "Nenhum produto encontrado"
+  "product_description": "Descrição do produto",
+  "products_not_found": "Nenhum produto encontrado",
+  "save": "Salvar",
+  "dismiss": "Cancelar",
+  "created": "Salvo"
 }

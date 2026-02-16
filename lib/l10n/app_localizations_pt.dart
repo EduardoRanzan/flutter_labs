@@ -69,5 +69,17 @@ class AppLocalizationsPt extends AppLocalizations {
   String get product_price => 'Preço do produto';
 
   @override
+  String get product_description => 'Descrição do produto';
+
+  @override
   String get products_not_found => 'Nenhum produto encontrado';
+
+  @override
+  String get save => 'Salvar';
+
+  @override
+  String get dismiss => 'Cancelar';
+
+  @override
+  String get created => 'Salvo';
 }
