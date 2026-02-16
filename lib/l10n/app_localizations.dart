@@ -199,6 +199,30 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Área Expandível'**
   String get expandable_area;
+
+  /// No description provided for @products.
+  ///
+  /// In pt, this message translates to:
+  /// **'Produtos'**
+  String get products;
+
+  /// No description provided for @product_name.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome do produto'**
+  String get product_name;
+
+  /// No description provided for @product_price.
+  ///
+  /// In pt, this message translates to:
+  /// **'Preço do produto'**
+  String get product_price;
+
+  /// No description provided for @products_not_found.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum produto encontrado'**
+  String get products_not_found;
 }
 
 class _AppLocalizationsDelegate

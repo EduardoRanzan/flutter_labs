@@ -16,5 +16,9 @@
   "master_data": "Master Data",
   "emoji_button": "Emoji Button",
   "facial_collect": "Facial Collect",
-  "expandable_area": "Expandable Area"
+  "expandable_area": "Expandable Area",
+  "products": "products",
+  "product_name": "Product Name",
+  "product_price": "Product Price",
+  "products_not_found": "No products found"
 }

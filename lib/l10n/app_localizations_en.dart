@@ -58,4 +58,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get expandable_area => 'Expandable Area';
+
+  @override
+  String get products => 'products';
+
+  @override
+  String get product_name => 'Product Name';
+
+  @override
+  String get product_price => 'Product Price';
+
+  @override
+  String get products_not_found => 'No products found';
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_labs/core/widgets/app_text.dart';
-import 'package:flutter_labs/features/master_data/my_widgets/entity/my_widgets_dto.dart';
+import 'package:flutter_labs/features/master_data/entity/master_data_item_dto.dart';
 import 'package:flutter_labs/l10n/app_localizations.dart';
 
 class MasterDataPage extends StatefulWidget {
@@ -34,7 +34,7 @@ class _MasterDataPage extends State<MasterDataPage> {
           _buildItemContent(_getWidgets()),
           Divider(),
           _buildItemHeader(AppLocalizations.of(context)?.master_data ?? ''),
-          _buildItemContent([]),
+          _buildItemContent(_getMenus()),
           Divider(),
         ],
       ),
@@ -45,7 +45,7 @@ class _MasterDataPage extends State<MasterDataPage> {
     return AppText.title(context, title);
   }
 
-  Widget _buildItemContent(List<MyWidgetsDto> widgets) {
+  Widget _buildItemContent(List<MasterDataItemDto> widgets) {
     return SizedBox(
       height: 150,
       child: CarouselView(
@@ -77,9 +77,9 @@ class _MasterDataPage extends State<MasterDataPage> {
     );
   }
 
-  List<MyWidgetsDto> _getWidgets() {
+  List<MasterDataItemDto> _getWidgets() {
     return [
-      MyWidgetsDto(
+      MasterDataItemDto(
         route: '/master-data/widgets/emoji-buton',
         label: AppLocalizations.of(context)?.emoji_button ?? '',
         icon: Icon(
@@ -87,7 +87,7 @@ class _MasterDataPage extends State<MasterDataPage> {
           color: Theme.of(context).colorScheme.onPrimaryContainer,
         ),
       ),
-      MyWidgetsDto(
+      MasterDataItemDto(
         route: '/master-data/widgets/facial-collect',
         label: AppLocalizations.of(context)?.facial_collect ?? '',
         icon: Icon(
@@ -95,7 +95,7 @@ class _MasterDataPage extends State<MasterDataPage> {
           color: Theme.of(context).colorScheme.onPrimaryContainer,
         ),
       ),
-      MyWidgetsDto(
+      MasterDataItemDto(
         route: '/master-data/widgets/expandable-area',
         label: AppLocalizations.of(context)?.expandable_area ?? '',
         icon: Icon(
@@ -103,6 +103,19 @@ class _MasterDataPage extends State<MasterDataPage> {
           color: Theme.of(context).colorScheme.onPrimaryContainer,
         ),
       ),
+    ];
+  }
+
+  List<MasterDataItemDto> _getMenus() {
+    return [
+      MasterDataItemDto(
+        route: '/master-data/menus/products',
+        label: AppLocalizations.of(context)?.products ?? '',
+        icon: Icon(
+          Icons.shopping_bag_outlined,
+          color: Theme.of(context).colorScheme.onPrimaryContainer,
+        )
+      )
     ];
   }
 }

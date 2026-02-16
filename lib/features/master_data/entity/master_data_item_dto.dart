@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 
-class MyWidgetsDto {
+class MasterDataItemDto {
   final String route;
   final String label;
   final Icon icon;
 
-  MyWidgetsDto({
+  MasterDataItemDto({
     required this.route,
     required this.label,
     required this.icon,

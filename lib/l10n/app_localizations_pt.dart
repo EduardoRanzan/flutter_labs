@@ -58,4 +58,16 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get expandable_area => 'Área Expandível';
+
+  @override
+  String get products => 'Produtos';
+
+  @override
+  String get product_name => 'Nome do produto';
+
+  @override
+  String get product_price => 'Preço do produto';
+
+  @override
+  String get products_not_found => 'Nenhum produto encontrado';
 }

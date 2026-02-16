@@ -1,9 +1,7 @@
-
-
 abstract class AppBaseApi {
-  Future findAll(String path);
-  Future findById(String path, String id);
-  Future create(String path, dynamic body);
-  Future update(String path, dynamic body);
-  Future remove(String path, dynamic body);
+  Future findAll();
+  Future findById(String id);
+  Future create(dynamic body);
+  Future update(dynamic body);
+  Future remove(dynamic body);
 }

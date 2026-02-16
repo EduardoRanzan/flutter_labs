@@ -16,5 +16,9 @@
   "master_data": "Cadastros",
   "emoji_button": "Botão de Emoji",
   "facial_collect": "Coleta Facial",
-  "expandable_area": "Área Expandível"
+  "expandable_area": "Área Expandível",
+  "products": "Produtos",
+  "product_name": "Nome do produto",
+  "product_price": "Preço do produto",
+  "products_not_found": "Nenhum produto encontrado"
 }
