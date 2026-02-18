@@ -20,6 +20,7 @@ class _AuthPageState extends State<AuthPage> {
   final _secureStorage = SecureStorage();
   late final AuthService _authService;
   bool _isLoading = false;
+  bool _obscureText = true;
 
   @override
   void initState() {
@@ -127,7 +128,7 @@ class _AuthPageState extends State<AuthPage> {
               ),
               TextFormField(
                 controller: _passwordController,
-                obscureText: true,
+                obscureText: _obscureText,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return AppLocalizations.of(context)?.required ?? '';
@@ -136,12 +137,26 @@ class _AuthPageState extends State<AuthPage> {
                 },
                 decoration: InputDecoration(
                   labelText: AppLocalizations.of(context)?.password ?? '',
+                  suffixIcon: _obscureText ?
+                    IconButton(
+                      icon: Icon(Icons.visibility),
+                      onPressed: () {
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
+                      },
+                    ) : IconButton(
+                    icon: Icon(Icons.visibility_off),
+                    onPressed: () {
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    },
+                  ),
                 )
               ),
               FilledButton(
                 onPressed: _isLoading ? null : _submit,
-                style: ButtonStyle(
-                ),
                 child: _isLoading ?
                   SizedBox(
                     width: 20,
