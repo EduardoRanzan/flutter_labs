@@ -114,9 +114,7 @@ class _ProductPage extends State<ProductPage> {
               ),
               enabled: p.status!,
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => ProductFormPage(productId: p.id))
-                );
+                _navigateForm(productId: p.id);
               },
             )
         );
@@ -150,11 +148,7 @@ class _ProductPage extends State<ProductPage> {
       children: [
         AppText.title(context, AppLocalizations.of(context)?.products ?? ''),
         FilledButton(
-          onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => ProductFormPage())
-            );
-          },
+          onPressed: _navigateForm,
           child: Icon(Icons.add))
       ],
     );
@@ -182,5 +176,17 @@ class _ProductPage extends State<ProductPage> {
 
   void loadingProduct(){
     _product = _productService.findAll(page: actualPage, pageSize: pageSize);
+  }
+
+  Future<void> _navigateForm({String? productId}) async {
+    final result = await Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => ProductFormPage(productId: productId,))
+    );
+
+    if (result == true) {
+      setState(() {
+        loadingProduct();
+      });
+    }
   }
 }

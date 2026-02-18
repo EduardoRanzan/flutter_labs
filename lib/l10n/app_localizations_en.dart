@@ -82,4 +82,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get created => 'Created';
+
+  @override
+  String get removed => 'Removed';
 }

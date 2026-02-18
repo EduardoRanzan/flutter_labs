@@ -24,5 +24,6 @@
   "products_not_found": "No products found",
   "save": "Save",
   "dismiss": "Dismiss",
-  "created": "Created"
+  "created": "Created",
+  "removed": "Removed"
 }

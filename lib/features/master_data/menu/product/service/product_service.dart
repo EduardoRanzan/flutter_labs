@@ -37,14 +37,12 @@ class ProductService implements AppBaseApi<ProductDto> {
   }
 
   @override
-  Future<dynamic> remove(body) {
-    // TODO: implement remove
-    throw UnimplementedError();
+  Future<dynamic> remove(String id) async {
+    await _dio.delete('$path&id=eq.$id');
   }
 
   @override
-  Future<dynamic> update(body) {
-    // TODO: implement update
-    throw UnimplementedError();
+  Future<dynamic> update(String id, ProductDto body) async {
+    await _dio.patch('$path&id=eq.$id', data: body.toJson());
   }
 }

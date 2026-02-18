@@ -82,4 +82,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get created => 'Salvo';
+
+  @override
+  String get removed => 'Deletado';
 }

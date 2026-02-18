@@ -247,6 +247,12 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Salvo'**
   String get created;
+
+  /// No description provided for @removed.
+  ///
+  /// In pt, this message translates to:
+  /// **'Deletado'**
+  String get removed;
 }
 
 class _AppLocalizationsDelegate

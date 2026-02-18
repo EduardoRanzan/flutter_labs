@@ -24,5 +24,6 @@
   "products_not_found": "Nenhum produto encontrado",
   "save": "Salvar",
   "dismiss": "Cancelar",
-  "created": "Salvo"
+  "created": "Salvo",
+  "removed": "Deletado"
 }

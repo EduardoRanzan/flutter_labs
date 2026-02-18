@@ -72,7 +72,7 @@ class _ProductFormPageState extends State<ProductFormPage> {
   }
 
   Widget _buildForm() {
-    return Form(
+    return _isLoading ? Center(child: CircularProgressIndicator()) : Form(
       key: _formKey,
       child: Column(
         spacing: 10,
@@ -113,34 +113,54 @@ class _ProductFormPageState extends State<ProductFormPage> {
   }
 
   Widget _buildFormButtons() {
-    return Row(
+    return _isLoading ? Container() : Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        ElevatedButton(
+        OutlinedButton(
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.of(context).pop(true);
           },
           child: Text(AppLocalizations.of(context)?.dismiss ?? ''),
         ),
         widget.productId == null ? Container() :
         FilledButton(
-          onPressed: () {},
-          child: Icon(Icons.delete),
+          style: FilledButton.styleFrom(
+            backgroundColor: Theme.of(context).colorScheme.errorContainer,
+          ),
+          onPressed: _delete,
+          child: Icon(Icons.delete, color: Theme.of(context).colorScheme.onErrorContainer),
         ),
         FilledButton(
-          onPressed: _isLoading ? null : _submit,
-          child: _isLoading ?
-          SizedBox(
-              width: 20,
-              height: 20,
-              child: CircularProgressIndicator()
-          ) :
-          Text(AppLocalizations.of(context)?.save ?? ''),
+          onPressed: _submit,
+          child: Text(AppLocalizations.of(context)?.save ?? ''),
         )
       ]
     );
   }
 
+  Future<void> _loadProduct() async{
+    if (_isLoading) return;
+    setState(() {
+      _isLoading = true;
+    });
+
+    try {
+      final ProductDto product = await _productService.findById(widget.productId!);
+      _nameController.text = product.name;
+      _priceController.text = product.price.toString();
+      _descriptionController.text = product.description!;
+    } catch (e) {
+      Navigator.of(context).pop(true);
+      ScaffoldMessenger.of(context).showSnackBar(
+        AppSnackBar.AppSnackBarError(context, AppLocalizations.of(context)?.generic_exception ?? '')
+      );
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+  
   Future<void> _submit() async {
     if (_isLoading) return;
     if (!(_formKey.currentState?.validate() ?? false)) return;
@@ -156,11 +176,15 @@ class _ProductFormPageState extends State<ProductFormPage> {
     );
 
     try {
-      await _productService.create(body);
+      if (widget.productId == null) {
+        await _productService.create(body);
+      } else {
+        await _productService.update(widget.productId!, body);
+      }
       ScaffoldMessenger.of(context).showSnackBar(
         AppSnackBar.AppSnackBarSucess(context, AppLocalizations.of(context)?.created ?? '', showCloseIcon: true)
       );
-      Navigator.of(context).pop();
+      Navigator.of(context).pop(true);
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         AppSnackBar.AppSnackBarError(context, AppLocalizations.of(context)?.generic_exception ?? '', showCloseIcon: true)
@@ -171,18 +195,27 @@ class _ProductFormPageState extends State<ProductFormPage> {
       });
     }
   }
+  
+  Future<void> _delete() async {
+    if (_isLoading) return;
+    setState(() {
+      _isLoading = true;
+    });
 
-  Future<void> _loadProduct() async{
     try {
-      final ProductDto product = await _productService.findById(widget.productId!);
-      _nameController.text = product.name;
-      _priceController.text = product.price.toString();
-      _descriptionController.text = product.description!;
-    } catch (e) {
-      Navigator.of(context).pop();
+      await _productService.remove(widget.productId!);
       ScaffoldMessenger.of(context).showSnackBar(
-        AppSnackBar.AppSnackBarError(context, AppLocalizations.of(context)?.generic_exception ?? '')
+          AppSnackBar.AppSnackBarSucess(context, AppLocalizations.of(context)?.removed ?? '', showCloseIcon: true)
       );
+      Navigator.of(context).pop(true);
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+      AppSnackBar.AppSnackBarError(context, AppLocalizations.of(context)?.generic_exception ?? '', showCloseIcon: true)
+      );
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
     }
   }
 }
