@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_labs/core/storage/secure_storage.dart';
+import 'package:flutter_labs/features/auth/services/auth_service.dart';
 
-class SplashPage extends StatefulWidget{
+class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
 
   @override
@@ -9,7 +9,7 @@ class SplashPage extends StatefulWidget{
 }
 
 class _SplashPageState extends State<SplashPage> {
-  final _secureStorage = SecureStorage();
+  final _authService = AuthService();
 
   @override
   void initState() {
@@ -18,20 +18,23 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   Future<void> _init() async {
-    final token = await _secureStorage.getToken();
+    final hasValidSession = await _authService.hasValidSession();
 
     if (!mounted) return;
 
     Navigator.pushReplacementNamed(
-        context,
-        token != null ? '/home' : '/login'
+      context,
+      hasValidSession ? '/home' : '/login',
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      body: const Center(
+        child: CircularProgressIndicator(),
+      ),
     );
   }
 }
