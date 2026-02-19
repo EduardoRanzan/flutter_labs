@@ -9,6 +9,7 @@ class AuthInterceptor extends Interceptor {
 
   static const publicRoutes = [
     'auth/v1/token?grant_type=password',
+    'auth/v1/token?grant_type=refresh_token',
   ];
 
   @override
